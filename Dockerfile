@@ -12,10 +12,13 @@
 # 
 # docker run --name rtl_433 -d -e MQTT_HOST=<mqtt-broker.example.com>   --privileged -v /dev/bus/usb:/dev/bus/usb  <image>
 
-FROM ubuntu:16.04
+FROM ubuntu:latest
 MAINTAINER Marco Verleun
 
 LABEL Description="This image is used to start a script that will monitor for events on 433,92 Mhz" Vendor="MarCoach" Version="1.0"
+
+ENV TZ=Europe/Berlin
+ENV DEBIAN_FRONTEND=noninteractive 
 
 #
 # First install software packages needed to compile rtl_433 and to publish MQTT events
@@ -29,7 +32,7 @@ RUN apt-get update && apt-get install -y \
   libtool \
   cmake \
   mosquitto-clients
-  
+
 #
 # Pull RTL_433 source code from GIT, compile it and install it
 #
