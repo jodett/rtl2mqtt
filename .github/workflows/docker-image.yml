@@ -17,34 +17,34 @@ jobs:
         uses: docker/build-push-action@v1.1.0
         with:
           # Username used to log in to a Docker registry. If not set then no login will occur
-          username: ${{ secrets.DOCKER_USERNAME }}  
+          username: ${{ secrets.DOCKER_REGISTRY_USERNAME }}  
           # Password or personal access token used to log in to a Docker registry. If not set then no login will occur
-          password: ${{ secrets.DOCKER_PASSWORD }}  
+          password: ${{ secrets.DOCKER_REGISTRY_PASSWORD }}  
           # Server address of Docker registry. If not set then will default to Docker Hub
-          registry: cloud.canister.io:5000/joachimd/rtl2mqtt
+          registry: cloud.canister.io:5000
           # Docker repository to tag the image with
-          repository: 
+          repository: joachimd/rtl2mqtt
           # Comma-delimited list of tags. These will be added to the registry/repository to form the image's tags
-          tags: # optional
+          tags: latest,
           # Automatically tags the built image with the git reference as per the readme
-          tag_with_ref: # optional
+          #tag_with_ref: # optional
           # Automatically tags the built image with the git short SHA as per the readme
-          tag_with_sha: # optional
+          #tag_with_sha: # optional
           # Path to the build context
-          path: # optional, default is .
+          #path: # optional, default is .
           # Path to the Dockerfile (Default is '{path}/Dockerfile')
-          dockerfile: # optional
+          #dockerfile: # optional
           # Sets the target stage to build
-          target: # optional
+          #target: # optional
           # Always attempt to pull a newer version of the image
-          always_pull: # optional
+          #always_pull: # optional
           # Comma-delimited list of build-time variables
-          build_args: # optional
+          #build_args: # optional
           # Comma-delimited list of images to consider as cache sources
-          cache_froms: # optional
+          #cache_froms: # optional
           # Comma-delimited list of labels to add to the built image
-          labels: # optional
+          #labels: # optional
           # Adds labels with git repository information to the built image
-          add_git_labels: # optional
+          #add_git_labels: # optional
           # Whether to push the image
-          push: # optional, default is true
+          #push: # optional, default is true
