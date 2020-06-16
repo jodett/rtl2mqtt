@@ -49,6 +49,8 @@ RUN git clone https://github.com/merbanan/rtl_433.git \
 # 
 # Use this variable when creating a container to specify the MQTT broker host.
 ENV MQTT_HOST=""
+ENV MQTT_USER=""
+ENV MQTT_PASS=""
 
 #
 # When running a container this script will be executed
