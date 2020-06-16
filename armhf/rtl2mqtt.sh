@@ -21,5 +21,5 @@ do
   [ -w /tmp/rtl_433.log ] && echo $line >> rtl_433.log
 
 # Raw message to MQTT
-  echo $line  | /usr/bin/mosquitto_pub -h $MQTT_HOST -i RTL_433 -l -t "RTL_433/Raw"
+  echo $line  | /usr/bin/mosquitto_pub -h $MQTT_HOST -u $MQTT_USER -P $MQTT_PASS -i RTL_433 -l -t "RTL_433/Raw"
 done
