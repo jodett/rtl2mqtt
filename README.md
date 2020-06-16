@@ -2,10 +2,7 @@
 
 ## Environment Variables
 
-| Name      | Component | Description |
-| --------- | --------- | ----------- |
-| MQTT_HOST | RabbitMq  | Hostname    |
-| MQTT_USER | RabbitMq  | Username    |
-| MQTT_PASS | RabbitMq  | Password    |
-| MQTT_PORT | RabbitMq  | Port (5672) |
-| TZ        | System    | Timezone    |
+| Name     | Description                                                                    |
+| -------- | ------------------------------------------------------------------------------ |
+| MQTT_URL | The URL must be in the form: mqtt(s)://[username[:password]@]host[:port]/topic |
+| TZ       | Timezone, like "Europe/Berlin"                                                 |
