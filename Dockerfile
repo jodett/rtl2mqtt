@@ -1,3 +1,4 @@
+# BASED ON WORK FROM Marco Verleun
 #
 # Docker file to create an image that contains enough software to listen to events on the 433,92 Mhz band,
 # filter these and publish them to a MQTT broker.
@@ -13,7 +14,6 @@
 # docker run --name rtl_433 -d -e MQTT_HOST=<mqtt-broker.example.com>   --privileged -v /dev/bus/usb:/dev/bus/usb  <image>
 
 FROM ubuntu:latest
-MAINTAINER Marco Verleun
 
 LABEL Description="This image is used to start a script that will monitor for events on 433,92 Mhz" Vendor="MarCoach" Version="1.0"
 
@@ -51,6 +51,7 @@ RUN git clone https://github.com/merbanan/rtl_433.git \
 ENV MQTT_HOST=""
 ENV MQTT_USER=""
 ENV MQTT_PASS=""
+ENV MQTT_PORT="5672"
 
 #
 # When running a container this script will be executed
