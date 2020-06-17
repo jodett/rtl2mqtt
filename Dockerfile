@@ -69,7 +69,3 @@ ENTRYPOINT ["/scripts/rtl2amqp.sh"]
 COPY rtl2amqp.sh /scripts/rtl2amqp.sh
 RUN chmod +x /scripts/rtl2amqp.sh
 
-#
-# The script is in a volume. This makes changes persistent and allows you modify it.
-#
-VOLUME ["/scripts"]
