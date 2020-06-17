@@ -53,7 +53,9 @@ RUN git clone https://github.com/merbanan/rtl_433.git \
 # 
 # Use this variable when creating a container to specify the AMQP broker host.
 # form like this: amqp(s)😕/[username[:password]@]host[:port]/topic
-ENV MQTT_URL="amqp://localhost:5672/"
+ENV AMQP_SERVER="amqp://localhost:5672/"
+ENV AMQP_EXCHANGE=
+ENV AMQP_ROUTINGKEY=
 
 #
 # When running a container this script will be executed

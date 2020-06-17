@@ -19,5 +19,5 @@ do
   echo $line
 
 # Raw message to MQTT
-  echo $line  | /usr/bin/amqp-publish -u $AMQP_SERVER -e $AMQP_EXCHANGE -r $AMQP_KEY -b
+  echo $line  | /usr/bin/amqp-publish -u $AMQP_SERVER -e $AMQP_EXCHANGE -r $AMQP_ROUTINGKEY -b
 done
