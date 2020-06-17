@@ -35,7 +35,8 @@ RUN apt-get update && apt-get install -y \
   amqp-tools \
   nano \
   fish \
-  telnet
+  telnet \
+  && rm -rf /var/lib/apt/lists/*
 
 #
 # Pull RTL_433 source code from GIT, compile it and install it
