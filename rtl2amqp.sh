@@ -18,6 +18,10 @@ PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
 do
   echo $line
 
-# Raw message to MQTT
-  echo $line  | /usr/bin/amqp-publish -u $AMQP_SERVER -e $AMQP_EXCHANGE -r $AMQP_ROUTINGKEY -b
+  if [ -z "$AMQP_EXCHANGE" ]
+  then
+    /usr/bin/amqp-publish -p -u $AMQP_SERVER -r $AMQP_ROUTINGKEY -b "${line}"
+  else
+    /usr/bin/amqp-publish -p -u $AMQP_SERVER -e $AMQP_EXCHANGE -r $AMQP_ROUTINGKEY -b "${line}"
+  fi
 done

@@ -53,8 +53,8 @@ RUN git clone https://github.com/merbanan/rtl_433.git \
 # Define an environment variable
 # 
 # Use this variable when creating a container to specify the AMQP broker host.
-# form like this: amqp(s)😕/[username[:password]@]host[:port]/topic
-ENV AMQP_SERVER="amqp://localhost:5672/"
+# form like this: amqp(s)😕/[username[:password]@]host[:port](/vhost)
+ENV AMQP_SERVER="amqp://localhost:5672"
 ENV AMQP_EXCHANGE=
 ENV AMQP_ROUTINGKEY=
 
@@ -67,5 +67,5 @@ ENTRYPOINT ["/scripts/rtl2amqp.sh"]
 # Copy my script and make it executable
 #
 COPY rtl2amqp.sh /scripts/rtl2amqp.sh
-RUN chmod +x /scripts/rtl2amqp.sh
+RUN chmod u+x /scripts/rtl2amqp.sh
 
