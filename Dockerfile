@@ -66,7 +66,7 @@ ENTRYPOINT ["/scripts/rtl2amqp.sh"]
 #
 # Copy my script and make it executable
 #
-COPY rtl2mqtt.sh /scripts/rtl2amqp.sh
+COPY rtl2amqp.sh /scripts/rtl2amqp.sh
 RUN chmod +x /scripts/rtl2amqp.sh
 
 #
