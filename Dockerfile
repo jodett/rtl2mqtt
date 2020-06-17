@@ -31,7 +31,11 @@ RUN apt-get update && apt-get install -y \
   automake \
   libtool \
   cmake \
-  mosquitto-clients
+  mosquitto-clients \
+  amqp-tools \
+  nano \
+  fish \
+  telnet
 
 #
 # Pull RTL_433 source code from GIT, compile it and install it
@@ -47,20 +51,20 @@ RUN git clone https://github.com/merbanan/rtl_433.git \
 #
 # Define an environment variable
 # 
-# Use this variable when creating a container to specify the MQTT broker host.
-# form like this: mqtt(s)😕/[username[:password]@]host[:port]/topic
-ENV MQTT_URL="mqtt://localhost:5672/"
+# Use this variable when creating a container to specify the AMQP broker host.
+# form like this: amqp(s)😕/[username[:password]@]host[:port]/topic
+ENV MQTT_URL="amqp://localhost:5672/"
 
 #
 # When running a container this script will be executed
 #
-ENTRYPOINT ["/scripts/rtl2mqtt.sh"]
+ENTRYPOINT ["/scripts/rtl2amqp.sh"]
 
 #
 # Copy my script and make it executable
 #
-COPY rtl2mqtt.sh /scripts/rtl2mqtt.sh
-RUN chmod +x /scripts/rtl2mqtt.sh
+COPY rtl2mqtt.sh /scripts/rtl2amqp.sh
+RUN chmod +x /scripts/rtl2amqp.sh
 
 #
 # The script is in a volume. This makes changes persistent and allows you modify it.

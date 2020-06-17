@@ -19,5 +19,5 @@ do
   echo $line
 
 # Raw message to MQTT
-  echo $line  | /usr/bin/mosquitto_pub -L $MQTT_URL -i RTL_433 -l -t "RTL_433/Raw"
+  echo $line  | /usr/bin/amqp-publish -u $AMQP_SERVER -e $AMQP_EXCHANGE -r $AMQP_KEY -b
 done
